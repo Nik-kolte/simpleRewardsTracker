@@ -1,0 +1,41 @@
+.popupHolder {
+  width: 100%;
+  padding: 30px 20px;
+  text-align: center;
+  place-items: center;
+  border-radius: 40px;
+}
+
+h1 {
+  color: var(--ion-color-primary);
+  margin-top: 0px;
+  font-weight: bold;
+}
+
+ion-input {
+  border-radius: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  font-size: min(5vw, 20px);
+}
+
+ion-select {
+  --padding-top: 5px;
+  --padding-end: 5px;
+  --padding-bottom: 5px;
+  margin: 10px 30%;
+  border: solid 2px var(--red-tint);
+  border-radius: 40px;
+  font-size: min(4vw, 20px);
+  color: var(--ion-color-danger);
+  width: 40%;
+}
+
+ion-button {
+  width: 40%;
+  --border-radius: 20px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
