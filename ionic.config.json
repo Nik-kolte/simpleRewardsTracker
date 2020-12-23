@@ -1,5 +1,7 @@
 {
   "name": "simpleRewardsTracker",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
