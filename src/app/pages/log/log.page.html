@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">Logs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="listHolder">
+    <ion-list
+    *ngFor="let log of logList, let i = index" >
+      <ion-item>
+        <div class="dataHolder">
+            <h5>{{log.message}}</h5>
+            <p>{{log.date.toDate() | date: 'MMM d, h:mm a'}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

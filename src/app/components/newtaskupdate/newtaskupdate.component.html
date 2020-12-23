@@ -1,0 +1,11 @@
+<div class="popupHolder">
+  <form [formGroup]="newTaskForm">
+    <h1>NEW TASK</h1>
+    <ion-input placeholder="Enter Task" formControlName="message"></ion-input>
+    <ion-select interface="popover" placeholder="points" formControlName="points">
+      <ion-select-option *ngFor="let point of points" [value]="point">{{point}} point{{point==1?'':'s'}}</ion-select-option>
+    </ion-select>
+
+    <ion-button color="primary" (click)="addNewTask()">Add</ion-button>
+  </form>
+</div>
