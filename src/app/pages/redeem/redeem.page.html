@@ -5,5 +5,37 @@
 </ion-header>
 
 <ion-content>
+  <div class="topContent">
+    <ion-icon src="./assets/icon/gift-sharp.svg" class="heartImage centered" color="danger"></ion-icon>
+    <div class="pointsText">{{ points?.value | number: '1.0-1'}}</div>
+  </div>
+  <div class="bottomContent">
+    <ion-select interface="popover" [(ngModel)]="selectedReward">
+      <ion-select-option *ngFor="let reward of rewardsList" [value]="reward">{{reward?.name}}</ion-select-option>
+    </ion-select>
+    <div class="costHolder">
+      Cost: 
+      <ion-icon class="costSymbol" src="./assets/icon/heart-circle-sharp.svg" color="danger"></ion-icon>
+      {{selectedReward?.cost}}
+    </div>
+    <div class="costHolder">
+      Balance After Spend: 
+      <ion-icon class="costSymbol" src="./assets/icon/heart-circle-sharp.svg" color="danger"></ion-icon>
+      {{(this.points?.value?this.points.value:0) - selectedReward?.cost}}
+    </div>
 
+    <ion-button color="primary" (click)="redeemPoints()">Redeem</ion-button>
+
+  </div>
+
+  <ion-fab
+  class="rightBtn"
+  vertical="bottom"
+  horizontal="end"
+  slot="fixed"
+  >
+    <ion-fab-button (click)="showRedeemList()">
+      <ion-icon name="list-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
