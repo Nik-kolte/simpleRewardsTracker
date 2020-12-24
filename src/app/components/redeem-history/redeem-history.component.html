@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" name="close-sharp" (click)="close()"></ion-icon>
+    <ion-title slot="start">Redeem Points</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="belowContent">
+    <ion-list
+      *ngFor="let reward of redeemedList, let i = index"
+        lines="none"
+      >
+      <ion-item>
+        <div class="dataHolder">
+          <div class="left">
+            <h5>{{reward.name}}</h5>
+            <p>{{reward.date.toDate() | date: 'MMM d, h:mm a'}}</p>
+          </div>
+          <div class="right">
+            <ion-icon src="./assets/icon/heart-circle-sharp.svg"></ion-icon>
+            <div class="points"> {{reward.cost}}</div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

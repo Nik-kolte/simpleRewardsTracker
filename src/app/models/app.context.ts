@@ -15,6 +15,7 @@ export class Reward {
   id?: any;
   name: string;
   cost: number;
+  date?: any;
 }
 
 export class Log {
