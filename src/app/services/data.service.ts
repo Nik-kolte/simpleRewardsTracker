@@ -6,11 +6,12 @@ import {
 } from "@angular/fire/firestore";
 import { Observable, ObservableInput } from "rxjs";
 import { map, take } from "rxjs/operators";
-import { HeartPoints, Log, Task } from "../models/app.context";
+import { HeartPoints, Log, Reward, Task } from "../models/app.context";
 import {
   APPDATA_COLLECTION_ID,
   LOG_COLLECTION_ID,
   POINTS_ID,
+  REWARD_COLLECTION_ID,
   TASK_COLLECTION_ID,
 } from "../models/constants";
 
@@ -19,14 +20,17 @@ import {
 })
 export class DataService {
   private tasks: Observable<Task[]>;
-  private appData: Observable<any>;
   private logs: Observable<Log[]>;
+  private rewards: Observable<Reward[]>;
 
   private tasksCollection: AngularFirestoreCollection<Task>;
   private appDataCollection: AngularFirestoreCollection<any>;
   private logsCollection: AngularFirestoreCollection<Log>;
+  private rewardsCollection: AngularFirestoreCollection<Reward>;
 
   constructor(private afs: AngularFirestore) {
+    this.appDataCollection = this.afs.collection<any>(APPDATA_COLLECTION_ID);
+
     this.tasksCollection = this.afs.collection<Task>(TASK_COLLECTION_ID);
     this.tasks = this.tasksCollection.snapshotChanges().pipe(
       map((actions) => {
@@ -38,8 +42,8 @@ export class DataService {
       })
     );
 
-    this.appDataCollection = this.afs.collection<any>(APPDATA_COLLECTION_ID);
-    this.appData = this.appDataCollection.snapshotChanges().pipe(
+    this.logsCollection = this.afs.collection<Log>(LOG_COLLECTION_ID);
+    this.logs = this.logsCollection.snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
           const data = a.payload.doc.data();
@@ -49,8 +53,8 @@ export class DataService {
       })
     );
 
-    this.logsCollection = this.afs.collection<Log>(LOG_COLLECTION_ID);
-    this.logs = this.logsCollection.snapshotChanges().pipe(
+    this.rewardsCollection = this.afs.collection<Reward>(REWARD_COLLECTION_ID);
+    this.rewards = this.rewardsCollection.snapshotChanges().pipe(
       map((actions) => {
         return actions.map((a) => {
           const data = a.payload.doc.data();
@@ -183,5 +187,14 @@ export class DataService {
 
   getLogs(): Observable<Log[]> {
     return this.logs;
+  }
+
+  getRewards(): Observable<Reward[]> {
+    return this.rewards;
+  }
+
+  addRedeemedReward(reward: Reward): Promise<DocumentReference> {
+    reward.date = new Date();
+    return this.rewardsCollection.add({ ...reward });
   }
 }

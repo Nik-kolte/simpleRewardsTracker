@@ -14,7 +14,7 @@ export class NewtaskupdateComponent implements OnInit {
   isSubmitted: boolean = false;
   newTaskForm: FormGroup;
   totalPoints: HeartPoints = new HeartPoints();
-  points: Array<number> = [1, 2, 3, 4, 5];
+  points: Array<number> = [0.5, 1, 2, 3, 4, 5];
 
   constructor(
     private FormBuilder: FormBuilder,
@@ -26,7 +26,7 @@ export class NewtaskupdateComponent implements OnInit {
   ngOnInit() {
     this.newTaskForm = this.FormBuilder.group({
       message: ["", [Validators.required]],
-      points: [this.points[0], Validators.required],
+      points: [this.points[1], Validators.required],
     });
 
     this._dataService.getHeartPoints().subscribe((points: HeartPoints) => {

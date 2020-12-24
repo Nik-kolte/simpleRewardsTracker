@@ -4,15 +4,14 @@
     <ion-icon slot="end" name="build-sharp" (click)="modifyPoints()"></ion-icon>
   </ion-toolbar>
 </ion-header>
-
+<div class="topContent">
+  <ion-icon src="./assets/icon/heart-sharp.svg" class="heartImage centered" color="danger"></ion-icon>
+  <div class="pointsText">{{ points?.value ? points?.value: 0 | number: '1.0-1'}}</div>
+</div>
+<h3>Tasks Completed</h3>
 <ion-content>
-  <div class="topContent">
-    <ion-icon src="./assets/icon/heart-sharp.svg" class="heartImage centered" color="danger"></ion-icon>
-    <div class="pointsText">{{ points?.value ? points?.value: 0 | number: '1.0-1'}}</div>
-  </div>
 
   <div class="bottomContent">
-    <h3>Tasks Completed</h3>
     <ion-item-sliding
       *ngFor="let task of taskList, let i = index"
        lines="none"

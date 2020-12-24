@@ -1,0 +1,83 @@
+.topContent {
+  width: 100%;
+  height: 30vh;
+  padding: 20px 5%;
+  display: flex;
+  position: relative;
+}
+
+span {
+  font-size: min(5vw, 25px);
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heartImage {
+  font-size: min(50vw, 250px);
+}
+
+.pointsText {
+  color: var(--ion-color-danger);
+  height: 60px;
+  width: 120px;
+  padding: 5px;
+  display: grid;
+  align-items: center;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 999;
+  font-size: min(7vw, 45px);
+  line-height: min(30px);
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  font-weight: bolder;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bottomContent {
+  padding: 20% 2%;
+  text-align: center;
+}
+
+.costHolder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--grey-text);
+  font-size: min(6vw, 24px);
+  padding: 20px;
+  .costSymbol {
+    font-size: min(6vw, 24px);
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+}
+
+ion-select {
+  --padding-top: 15px;
+  --padding-end: 5px;
+  --padding-bottom: 15px;
+  background-color: #ffd3d3;
+  margin: 10px 10%;
+  border-radius: 40px;
+  font-size: min(4vw, 20px);
+  color: var(--ion-color-danger);
+  width: 80%;
+}
+
+ion-button {
+  width: 40%;
+  --border-radius: 20px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  margin: 40px;
+}

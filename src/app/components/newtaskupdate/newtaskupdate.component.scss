@@ -17,6 +17,8 @@ ion-input {
   --padding-top: 10px;
   --padding-bottom: 10px;
   font-size: min(5vw, 20px);
+  background-color: #ffd3d3;
+  color: var(--ion-color-danger);
 }
 
 ion-select {
@@ -24,7 +26,7 @@ ion-select {
   --padding-end: 5px;
   --padding-bottom: 5px;
   margin: 10px 30%;
-  border: solid 2px var(--red-tint);
+  background-color: #ffd3d3;
   border-radius: 40px;
   font-size: min(4vw, 20px);
   color: var(--ion-color-danger);
